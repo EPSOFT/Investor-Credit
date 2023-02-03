@@ -1,0 +1,456 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.background {
+  overflow: hidden;
+}
+
+.left-side {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+.top-part {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  left: 50%;
+  transform: skewX(200deg);
+  box-shadow: 0 5px 30px 2px hsla(0, 0%, 0%, 0.5);
+  z-index: 2;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  cursor: pointer;
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.flip {
+  width: inherit;
+  height: inherit;
+  transition: 0.7s;
+  transform-style: preserve-3d;
+  -webkit-animation: flip 2.5s ease;
+  animation: flip 2.5s ease;
+}
+
+.front, .back {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
+  backface-visibility: hidden;
+  background-image: linear-gradient(to right,#4b90a3, #4b90a3);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.front {
+  transform: translateZ(0);
+}
+
+.center .top-part {
+  width: 800px;
+  left: 304px;
+}
+
+.logo {
+  position: absolute;
+  color: red;
+  top: 30px;
+  right: 30px;
+  z-index: 10;
+}
+
+.investor {
+  position: absolute;
+  top: 32px;
+  left: 26px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.chip {
+  position: absolute;
+  top: 66px;
+  left: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 36px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom left, #ffecc7, #b69b50);
+}
+
+.chip .chip-line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+}
+
+.chip .chip-line:nth-child(1) {
+  top: 10px;
+}
+
+.chip .chip-line:nth-child(2) {
+  top: 18px;
+}
+
+.chip .chip-line:nth-child(3) {
+  bottom: 10px;
+}
+
+.chip .chip-line:nth-child(4) {
+  left: 25px;
+  width: 1px;
+  height: 36px;
+}
+
+.chip .chip-main-square {
+  width: 20px;
+  height: 26px;
+  border: 1px solid #3a3a3a;
+  border-radius: 3px;
+  background-image: linear-gradient(to bottom, #ffecc7, #c2aa68);
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  top: 68px;
+  left: 96px;
+}
+
+.card-number {
+  position: absolute;
+  top: 122px;
+  left: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-family: 'cc font', monospace;
+  z-index: 2;
+}
+
+.card-number .section {
+  margin-right: 10px;
+}
+
+.small-number {
+  position: absolute;
+  top: 150px;
+  left: 62px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 8px;
+  font-weight: 300;
+}
+
+.valid-thru {
+  position: absolute;
+  top: 176px;
+  left: 190px; 
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 8px;
+  z-index: 2;
+}
+
+.valid-thru .date {
+  color: #fff;
+  font-size: 12px;
+  font-family: 'cc font', monospace;
+  margin-left: 8px;
+}
+
+.card-holder {
+  position: absolute;
+  top: 180px;
+  left: 26px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 8px;
+}
+
+.card-holder .name {
+  position: absolute;
+  top: 14px;
+  left: 0px;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'cc font', monospace;
+  white-space: nowrap;
+}
+
+.master {
+  position: absolute;
+  top: 190px;
+  right: 22px;
+  bottom: 30px;
+  text-shadow: none;
+  display: flex;
+  z-index: 2;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+  
+.master-red {
+  background-color: #b8272fdb;
+}
+
+.master-yellow {
+  margin-left: -10px;
+  background-color: #ea981cb6;
+}
+
+.mastercard {
+  position: absolute;
+  top: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card {
+  perspective: 1000;
+}
+
+.card:hover .flip {
+  transform: rotateY(180deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-image: linear-gradient(to bottom, #4b90a3, #305966);
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.customer-service {
+  margin-top: 10px;
+  margin-left: 16px;
+  color: rgba(255,255,255,0.6);
+  font-size: 8px;
+  text-align: justify;
+}
+
+.back .black-strip {
+  position: relative;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-image: linear-gradient(to bottom, #373737, #292929);
+  z-index: 1;
+}
+
+.back .signature {
+  margin-top: 16px;
+  margin-left: 18px;
+  font-size: 8px;
+  color: rgba(255,255,255,0.6);
+}
+
+.back .ccv {
+  position: relative;
+  top: 4px;
+  left: 0;
+  right: 0;
+  height: 36px;
+  width: 70%;
+  margin-left: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: right;
+  letter-spacing: 1px;
+  color: rgba(94, 97, 97, 0.679);
+  background: rgba(255, 255, 255, 0.63);
+  z-index: 10;
+}
+
+.back .card-number {
+  margin-left: 75px;
+  transform: scaleX(-1);
+  color: #305966;
+}
+
+.back label {
+  position: absolute;
+  margin-left: 320px;
+  top: 120px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  z-index: 10;
+}
+
+.back .date {
+  margin-top: 40px;
+  margin-right: 250px;
+  font-size: 'cc font', monospace;
+  font-size: 12px;
+  transform: scaleX(-1);
+  color: #284c57;
+}
+
+.back .name {
+  margin-right: 30px;
+  font-family: 'cc font', monospace;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-left: 75px;
+  transform: scaleX(-1);
+  color: #284c57;
+}
+
+
+
+@keyframes flip {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    width: 280px;
+    height: 174px;
+    border-radius: 10px;
+  }
+  .front, .back {
+    border-radius: 10px;
+  }
+  .center .top-part {
+    left: 75%;
+  }
+  .logo {
+    top: 12px;
+    right: 10px;
+  }
+  .investor {
+    top: 14px;
+    left: 14px;
+    font-size: 8px;
+  }
+  .chip {
+    top: 40px;
+    left: 16px;
+  }
+  .wave {
+    top: 42px;
+    left: 80px;
+  }
+  .card-number {
+    top: 86px;
+    left: 16px;
+    font-size: 18px;
+  }
+  .small-number {
+    top: 110px;
+    left: 40px;
+  }
+  .valid-thru {
+    font-size: 6px;
+    top: 120px;
+    left: 55%;
+  }
+  .valid-thru .date {
+    margin-left: 4px;
+  }
+  .card-holder {
+    top: 136px;
+    left: 16px;
+    font-size: 6px;
+  }
+  .card-holder .name {
+    font-size: 12px;
+    top: 8px;
+  }
+  .master {
+    top: 140px;
+    right: 14px;
+  }
+  .circle {
+    width: 20px;
+    height: 20px;
+  }
+  .mastercard {
+    top: 20px;
+    left: -1px;
+    font-size: 6px;
+  }
+  .customer-service {
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 6px;
+  }
+  .back .black-strip {
+    top: 3px;
+    height: 30px;
+  }
+  .back .signature {
+    margin-top: 4px;
+    margin-left: 10px;
+    font-size: 6px;
+  }
+  .back .ccv {
+    font-size: 12px;
+    height: 15px;
+    margin-left: 10px;
+  }
+  .back label {
+    font-size: 8px;
+    top: 72px;
+    margin-left: 82%;
+  }
+  .back .card-number {
+    margin-left: 40px;
+  }
+  .back .date {
+    margin-top: 30px;
+    margin-left: 76px;
+  }
+  .back .name {
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+}
